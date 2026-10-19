@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InheritancePolymorphismExample
 {
-    public abstract class Shape
+    public abstract class  Shape : IShape
     {
 
         protected Color colour; //shape's colour
