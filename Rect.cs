@@ -32,5 +32,9 @@ namespace InheritancePolymorphismExample
             return text;
         }
 
+        public override float CalcArea()
+        {
+            return (float) width * height;
+        }
     }
 }

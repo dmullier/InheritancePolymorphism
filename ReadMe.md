@@ -44,13 +44,13 @@ The stages below are in chronological order, from the oldest commit to the newes
 
 **Note** The rectangle has gone behind thge circle (you can just about see it poking out), this is because before it rendered the shapes in two loops, doing the circles first and then the single rectangle. Now the last circle is rendered after the rectangle because that is where it is in the shapes ArrayList. You'd have to add it at the end to see it.
 
-### Example 4 making it draw random shapes
+### Example 4 making it draw random shapes and adding more shapes
 
 **Before:** The form added a small, fixed set of example shapes.
 
-**Change:** The example began generating many shapes with randomised positions, dimensions colours. `Square` and `Triangle` were added alongside circles and rectangles area calculation was introduced for shapes.
+**Change:** The example began generating many shapes with randomised positions, dimensions colours. `Square` and `Triangle` were added alongside circles and rectangles area calculation was introduced for shapes. Most shapes declare a `CalcArea()` method that returns the area of the shape. Triangle does not, so it falls back on the place holder in Shape. This is not ideal as we may not realise that it should be implemented.
 
-**Why it helped:** The example now exercised the shared handling code across a broader and less predictable collection of shape objects. It also shows that paint draws somethinmg else when it is called whedn the window is shrunk and brought back on.
+**Why it helped:** The example now exercised the shared handling code across a broader and less predictable collection of shape objects. It also shows that paint draws all the shapes again when it is called when the window is shrunk and brought back on.
 
 **Concept:** This stage illustrates extensibility through polymorphism: new derived types can join the same handling flow. It also exposes a limitation of `ArrayList`: it accepts any object, so an unrelated value can accidentally enter the collection. i.e. if we add(new String("hello")) we will get a run time error when it tries to cast it to a Shape and can't.
 

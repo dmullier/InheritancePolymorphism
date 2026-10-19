@@ -29,6 +29,9 @@ namespace InheritancePolymorphismExample
             text = sut[sut.Length - 1];
             return text;
         }
-
+        public override float CalcArea()
+        {
+            return (float)Math.PI * radius * radius;
+        }
     }
 }
