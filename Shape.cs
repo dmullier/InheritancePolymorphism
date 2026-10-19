@@ -4,7 +4,7 @@ using System.Text;
 
 namespace InheritancePolymorphismExample
 {
-    public class Shape
+    public abstract class Shape
     {
 
         protected Color colour; //shape's colour
@@ -29,10 +29,7 @@ namespace InheritancePolymorphismExample
             g.DrawString(text, drawFont, drawBrush, this.x, this.y, drawFormat);
         }
 
-        public virtual float CalcArea()
-        {
-            return 0; //a shape has no area
-        }
+        public abstract float CalcArea();
         public override string ToString() //get the standard object name and break hierarchy to get just the name, inherited from object class, which is the base class of all classes in C#
         {
             String text = base.ToString();

@@ -20,5 +20,11 @@ namespace InheritancePolymorphismExample
             g.DrawPolygon(p, points);
             base.Draw(g);
         }
+
+
+        public override float CalcArea()
+        { 
+            return (size * size) / 2;
+        }
     }
 }

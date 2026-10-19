@@ -78,9 +78,9 @@ The stages below are in chronological order, from the oldest commit to the newes
 
 **Before:** `Shape` could be instantiated even though a general shape does not have enough information to define a meaningful area. Its default area method returned `0`, which could conceal a missing implementation.
 
-**Change:** `Shape` became abstract `calcArea()` became an abstract method. Concrete shape classes provide their own area calculations.
+**Change:** `Shape` became abstract `calcArea()` became an abstract method. Concrete shape classes provide their own area calculations Because Shape has one (or more) abstract methods, it cannot be instantiated. The compiler enforces that all concrete derived classes implement the abstract methods and Shape itself must be declared as 'abstract', this makes it very clear to anyone looking at the code.
 
-**Why it helped:** The design prevents incomplete generic shapes from being created and requires each concrete shape to supply its area behaviour.
+**Why it helped:** The design prevents incomplete generic shapes from being created and requires each concrete shape to supply its area behaviour Triangle, which didn't have a CalcArea() relied on the fallback in Shape. WHich meant we could have just left it, ignored it, forgotten it needed it. Now it gives a syntax error until we implement it in Triangle itself.
 
 **Concept:** Abstract classes can share state and implemented behaviour while leaving essential operations to subclasses. Abstract methods turn that expectation into a compiler-checked obligation.
 
