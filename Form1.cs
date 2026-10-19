@@ -5,11 +5,11 @@ namespace InheritancePolymorphismExample
 {
     public partial class Form1 : Form
     {
-        ArrayList Shapes = new ArrayList();
+        List<Shape> Shapes = new List<Shape>();
         public Form1()
         {
             InitializeComponent();
-           // Shapes.Add("hello"); //this would cause a problem but if we uncomment it we won't get a syntax error, go on try it.
+            //Shapes.Add("hello"); //this would cause a problem but if we uncomment it we won't get a syntax error, go on try it. NOTE that now you get a syntax error, where before you got a run-time error
             Random rand = new Random(77887);
             for (int i = 0; i < 150; i++)
             {
