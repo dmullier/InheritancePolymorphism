@@ -29,7 +29,7 @@ namespace InheritancePolymorphismExample
 
                 c = (Circle) Circles[i];
                 c.Draw(g);
-                Debug.WriteLine(c.Description());
+                Debug.WriteLine(c); //note passing a reference to Write will automatucally call its ToString() (same in Java C++ etc).
 
             }
             for (int i = 0; i < Rectangles.Count; i++)
@@ -38,7 +38,7 @@ namespace InheritancePolymorphismExample
 
                 r = (Rect)Rectangles[i];
                 r.Draw(g);
-                Debug.WriteLine(r.Description());
+                Debug.WriteLine(r);
 
             }
         }

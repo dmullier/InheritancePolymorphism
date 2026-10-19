@@ -4,17 +4,12 @@ using System.Text;
 
 namespace InheritancePolymorphismExample
 {
-    public class Circle
+    public class Circle : Shape
     {
-        protected int radius;
-        protected Color colour;
-        protected int x, y; //note I could use c# properties for this
-        public Circle(Color colour, int x, int y, int radius)
-        {
+        protected int radius; //should be declared as protected for an classes that inherit from this class
 
-            this.colour = colour; //shape's colour
-            this.x = x; //its x pos
-            this.y = y; //its y pos
+        public Circle(Color colour, int x, int y, int radius) : base(colour, x, y)
+        {
             this.radius = radius;
         }
 
@@ -24,19 +19,12 @@ namespace InheritancePolymorphismExample
             SolidBrush b = new SolidBrush(colour);
             g.FillEllipse(b, x, y, radius * 2, radius * 2);
             g.DrawEllipse(p, x, y, radius * 2, radius * 2);
-
-            Font drawFont = new Font("Arial", 12);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
-            // Set format of string.
-            StringFormat drawFormat = new StringFormat();
-            drawFormat.FormatFlags = StringFormatFlags.NoClip;
-            String text = this.Description();
-            g.DrawString(text, drawFont, drawBrush, this.x, this.y, drawFormat);
+            base.Draw(g); //call the base class draw method to draw the name of the shape
         }
 
-        public string Description() //get the standard object name and break hierarchy to get just the name
+        public override string ToString() //get the standard object name and break hierarchy to get just the name
         {
-            String text = this.ToString();
+            String text = base.ToString();
             String[] sut = text.Split('.');
             text = sut[sut.Length - 1];
             return text;

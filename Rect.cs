@@ -4,17 +4,12 @@ using System.Text;
 
 namespace InheritancePolymorphismExample
 {
-    public class Rect
+    public class Rect : Shape
     {
-        protected int width, height;
-        protected Color colour;
-        protected int x, y; //not I could use c# properties for this
-        public Rect(Color colour, int x, int y, int width, int height)
+        protected int width, height; //should be declared as protected for an classes that inherit from this class
+       
+        public Rect(Color colour, int x, int y, int width, int height) : base(colour, x, y)
         {
-
-            this.colour = colour; //shape's colour
-            this.x = x; //its x pos
-            this.y = y; //its y pos
             this.width = width;
             this.height = height;
         }
@@ -26,18 +21,12 @@ namespace InheritancePolymorphismExample
             g.FillRectangle(b, x, y, width, height);
             g.DrawRectangle(p, x, y, width, height);
 
-            Font drawFont = new Font("Arial", 12);
-            SolidBrush drawBrush = new SolidBrush(Color.Black);
-            // Set format of string.
-            StringFormat drawFormat = new StringFormat();
-            drawFormat.FormatFlags = StringFormatFlags.NoClip;
-            String text = this.Description();
-            g.DrawString(text, drawFont, drawBrush, this.x, this.y, drawFormat);
+            base.Draw(g); //call the base class draw method to draw the name of the shape
         }
 
-        public string Description() //get the standard object name and break hierarchy to get just the name
+        public override string ToString() //get the standard object name and break hierarchy to get just the name
         {
-            String text = this.ToString();
+            String text = base.ToString();
             String[] sut = text.Split('.');
             text = sut[sut.Length - 1];
             return text;
