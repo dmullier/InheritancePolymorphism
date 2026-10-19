@@ -36,7 +36,7 @@ The stages below are in chronological order, from the oldest commit to the newes
 
 **Before:** The form held separate collections for circles and rectangles and needed a separate loop and variable for each type.
 
-**Change:** The separate collections were replaced by one `ArrayList` of shapes. The form could retrieve each item as `Shape` and call the shared drawing behaviour in one loop.
+**Change:** The separate collections were replaced by one `ArrayList` of shapes. The form could retrieve each item as `Shape` and call the shared drawing behaviour in one loop. Note also how without adding 'override' to the derived Draw() it would the base Draw() and only output the name, but it does give a green code sniff to say you are hiding something that should be overridden.
 
 **Why it helped:** The caller no longer needed to duplicate the same handling flow for every concrete shape type.
 

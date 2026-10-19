@@ -13,7 +13,7 @@ namespace InheritancePolymorphismExample
             this.radius = radius;
         }
 
-        public void Draw(Graphics g)
+        public override void Draw(Graphics g)
         {
             Pen p = new Pen(Color.Black, 2);
             SolidBrush b = new SolidBrush(colour);
